@@ -1,0 +1,7 @@
+EmailJS and Gmail Account
+Username: takonbowl@gmail.com
+Userpass: TNB567245
+
+Server ID: service_f8dajvw
+Template ID: template_x3s4imo
+Public Key/User ID: rGovxfaaOlHc2Biua

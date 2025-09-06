@@ -1,0 +1,683 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background: url('../Img/japculture.png') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Adjust opacity for brightness reduction */
+    pointer-events: none; /* Prevent interaction with the pseudo-element */
+    z-index: -1; /* Ensure overlay stays behind content */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 50px;
+    background: #191a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    position: relative;
+    font-size: 28px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%; 
+    background: #191a1a;
+    animation: shrink 0.6s forwards;
+    animation-delay: 0.4s;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    position: relative;
+    transition: color 0.2s;
+}
+
+.navbar a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #FF6347;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+    width: 100%;
+}
+
+.navbar a:hover,
+.navbar a:active {
+    color: tomato;
+}
+
+.Home {
+    height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    padding: 0 10%;
+}
+
+.Home-content {
+    position: relative;
+    max-width: 600px;
+    text-align: center; 
+}
+
+.Home-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Home-content h1 {
+    margin-top: 80px;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #e5533d;
+    white-space: nowrap;
+    word-spacing: 20px;
+    animation: fadeIn 1s ease-in-out;
+    -webkit-text-stroke: 0.5px black; /* Adds a black border around letters */
+}
+
+.Home-content h3 {
+    position: relative;
+    font-size: 32px;
+    font-weight: 700;
+    color: whitesmoke;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.gallery .item {
+    position: relative;
+    width: 500px;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #e5533d;
+    box-shadow: 4px solid #e5533d;
+    text-align: center;
+    border: 2px solid whitesmoke; /* Added border here */
+    animation: fadeIn 3s ease-in-out;
+}
+
+.gallery .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery .item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gallery .item:hover img {
+    transform: scale(1.2);
+}
+
+.gallery .item:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.Home-content p {
+    text-align: justify;
+    position: relative;
+    margin: 40px 0 20px;
+    max-width: 600px;
+    background-color: #191a1a;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid whitesmoke;
+    color: whitesmoke;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.Home-sci {
+    position: absolute;
+    bottom: 65px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    animation: fadeIn 5s ease-in-out;
+}
+
+.Home-sci a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    background-color: #191a1a;
+    border: 2px solid whitesmoke;
+    border-radius: 50px;
+    font-size: 20px;
+    color: #FF6347;
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.5s;
+    margin: 0 10px;
+}
+
+.Home-sci a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #191a1a;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.Home-sci a:hover::before {
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes shrink {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}
+
+.About {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10%;
+    color: whitesmoke;
+    background: #191a1a;
+}
+
+.About-container {
+    display: flex;
+    flex-direction: row; /* Ensures the image and content are side-by-side */
+    width: 100%;
+    max-width: 1200px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.About-image {
+    flex: 1; /* Allows the image container to take space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 50px; /* Adds space between image and content */
+}
+
+.About-image img {
+    width: 100%; /* Makes the image responsive */
+    max-width: 400px; /* Sets a maximum width for the image */
+    height: 500px; /* Maintains aspect ratio */
+    border: 5px solid whitesmoke; /* Optional frame style */
+    border-radius: 10px; /* Optional rounded corners */
+    object-fit: cover;
+}
+
+.About-content {
+    flex: 2; /* Makes the content container larger than the image */
+    text-align: justify;
+}
+
+.About-header {
+    display: flex;
+    align-items: center;
+}
+
+.About-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 0.6;
+    margin-top: 40px;
+    text-align: right;
+}
+
+.underline {
+    margin-top: 20px;
+    width: 100%;
+    border: 1px solid whitesmoke;
+}
+
+.About-content p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.socmed {
+    margin-top: 30px; /* Adds spacing between paragraphs and social media section */
+    padding: 10px;
+    border-top: 2px solid #191a1a; /* Optional separator */
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.socmed ul {
+    list-style: none; /* Removes bullets from the list */
+    padding: 0;
+}
+
+.socmed li {
+    margin-bottom: 10px; /* Adds space between list items */
+    text-align: left; /* Aligns text to the left for better readability */
+}
+
+.Menu {
+    height: 110vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10%;
+    color: #191a1a;
+    background: #191a1a;
+    background-size: cover;
+}
+
+.Menu-c1, .Menu-c2, .Menu-c3, .Menu-c4 p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Menu-container {
+    height: 700px;
+    width: 100%; /* Set to 100% of the parent's width for responsiveness */
+    max-width: 2000px; /* Limits the width to a practical size */
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    background: url('../Img/japculture.png') no-repeat center center fixed;
+    filter: blur(0); /* Removes blur */
+    background-size: cover;
+    border-radius: 10px;
+    border: 4px solid whitesmoke;
+    box-shadow: 0px 4px 8px 2px #e5533d;
+    color: #191a1a;
+    gap: 20px;
+    padding: 20px; /* Adds padding inside the container */
+    margin-bottom: 60px;
+}
+
+.Menu-grid {
+    display: grid; /* Use CSS Grid for precise layout control */
+    grid-template-columns: repeat(2, 500px); /* 2 columns of equal width */
+    grid-template-rows: repeat(2, 200px); /* 2 rows of equal height */
+    justify-content: center; /* Center the grid horizontally */
+    align-items: center; /* Center the grid vertically */
+    gap: 100px 75px; /* Adjusts row (100px) and column (20px) gaps */
+    margin: 80px auto; /* Center the grid within the parent */
+}
+
+.Menu-c1,
+.Menu-c2 {
+    margin-top: 40px;
+    height: 300px;
+    width: 500px;
+    border: whitesmoke 2px solid;
+    display: flex; /* Flexbox for centering content inside the container */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for depth */
+    background-color: #191a1a;
+}
+
+.Menu-c3,
+.Menu-c4 {
+    margin-top: 30px;
+    height: 225px;
+    width: 500px;
+    border: whitesmoke 2px solid;
+    display: flex; /* Flexbox for centering content inside the container */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for depth */
+    background-color: #191a1a;
+}
+
+.Menu-c1 h3 {
+    margin-bottom: 15px; /* Adjust spacing between heading and list */
+}
+
+.menu-list1 {
+    color: whitesmoke;
+    list-style-type: disc;
+    display: inlin20e-block;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 16px; 
+}
+
+.Menu-c2 h3 {
+    margin-bottom: 15px; 
+}
+
+.menu-list2 {
+    color: whitesmoke;
+    list-style-type: disc;
+    display: inline20e-block;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+.Menu-c3 h1 {
+    margin-bottom: 75px;
+}
+
+.menu-list3 {
+    color: whitesmoke;
+    list-style-type: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+}
+
+.Menu-c4 h1 {
+    margin-bottom: 75px;
+}
+
+.menu-list4 {
+    color: whitesmoke;
+    list-style-type: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+}
+
+.menu-list1 li, .menu-list2 li, .menu-list3 li, .menu-list4 li {
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.menu-list1 li:hover, .menu-list2 li:hover, .menu-list3 li:hover, .menu-list4 li:hover {
+  background: #FF6347;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.Menu-c1,
+.Menu-c2,
+.Menu-c3,
+.Menu-c4 {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.Menu-c1:hover,
+.Menu-c2:hover,
+.Menu-c3:hover,
+.Menu-c4:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 24px 0 #e5533d, 0 1.5px 8px 0 #fff2;
+}
+
+.Reservation-info {
+    height: 55vh;
+    background: whitesmoke;
+}
+
+.Reservation-info h1 {
+    padding-top: 50px;
+    text-align: center;
+    font-size: 35px;
+}
+
+.Reservation-info p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 20px;
+    padding-left: 500px;
+    text-align: center;
+    width: 70%;
+}
+.Reservation {
+    height: 110vh;
+    display: flex;
+    gap: 2.5px;
+    padding: 0 10%;
+    color: whitesmoke;
+    background: #191a1a;
+    background-size: cover;
+}
+
+.Reservation-container {
+    background-color: #191a1a;
+    border: 1px solid whitesmoke;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 90px;
+    margin-left: 50px;
+    width: 100%;
+    height: 80%;
+    box-shadow: 2px 2px 5px #fff(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for hover effect */
+}
+
+.Reservation-container:hover {
+    transform: scale(1.05); /* Zoom effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Box shadow effect on hover */
+}
+
+.Reservation-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: #191a1a;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #191a1a;
+    border: 2px solid whitesmoke;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background-color: #add864;
+}
+
+.Reservation-toprightside-container {
+    background-color: #333;
+    border: 1px solid whitesmoke;
+    border-radius: 8px;
+    margin-top: 90px;
+    margin-right: 55px;
+    width: 45%;
+    height: 80%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-integration {
+    text-align: center;
+} 
+
+.map-integration img {
+    width: 510px;
+    height: 300px;
+    border: 4px solid #191a1a;
+    border-radius: 6px; 
+    margin-top: 17.5px;
+}
+
+.map-integration-info {
+    width: 510px;
+    height: 300px;
+    background-color: #191a1a;
+    border: 2px solid #191a1a;
+    border-radius: 6px;
+    margin: 10px;
+} 
+.map-integration-info h1 {
+    padding: 20px;
+    text-align: center;
+}
+
+.map-integration-info p {
+    text-align: center;
+}
+
+.Contact {
+    height: 80vh;
+    display: flex;
+    justify-content: flex-end; /* Align children to the right */
+    align-items: center;
+    padding: 0 10%;
+    background: #191a1a;
+}
+
+.contact-container {
+    margin-right: 110px;
+    height: 400px;
+    width: 1000px;
+    background-color: #191a1a;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid whitesmoke;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: whitesmoke;
+}
+
+.contact-container h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.contact-container p {
+    font-size: 16px;
+    margin: 10px 0 20px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.contact-container li {
+    margin-bottom: 10px;
+    list-style-type: none;
+    text-align: center;
+}
+
+footer {
+    background-color: whitesmoke; /* Dark background for contrast */
+    color: #fff; /* White text */
+    text-align: center; /* Center the content */
+    padding: 20px 0; /* Space above and below */
+    font-family: Arial, sans-serif; /* Clean font */
+}
+
+footer h1 {
+    color: #191a1a;
+    font-size: 18px; /* Adjust font size */
+    margin: 0; /* Remove default margin */
+}
+
+/* Add at the end of your CSS file */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.Home-title h1, .Home-header h3, .gallery .item {
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+}
+.Home-title h1 { animation-delay: 0.2s; }
+.Home-header h3 { animation-delay: 0.5s; }
+.gallery .item:nth-child(1) { animation-delay: 0.8s; }
+.gallery .item:nth-child(2) { animation-delay: 1.0s; }
+.gallery .item:nth-child(3) { animation-delay: 1.2s; }
+.gallery .item:nth-child(4) { animation-delay: 1.4s; }
